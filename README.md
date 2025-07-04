@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Post SE Production
 
 A modern SaaS platform with influencer marketing aesthetics built with React, TypeScript, and shadcn/ui.
@@ -89,3 +90,6 @@ This project is proprietary software owned by Post SE Production.
 ## Support
 
 For support and questions, please contact the development team.
+=======
+# POST-SE-PRODUCTION
+>>>>>>> ad916151e2108785dc5fd79a7612e6f5e09a88dd
