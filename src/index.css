@@ -1,0 +1,217 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Post Se Production Design System - Modern SaaS with Influencer Marketing Aesthetics
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Base colors - Clean and modern */
+    --background: 0 0% 100%;
+    --foreground: 220 15% 8%;
+
+    /* Card system */
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 8%;
+
+    /* Popover system */
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 8%;
+
+    /* Brand colors - Purple to blue gradient system */
+    --primary: 260 85% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 260 85% 70%;
+    --primary-dark: 260 85% 50%;
+
+    /* Secondary - Complementary purple */
+    --secondary: 280 45% 95%;
+    --secondary-foreground: 260 85% 40%;
+
+    /* Accent - Orange for CTAs */
+    --accent: 25 85% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Muted colors */
+    --muted: 220 15% 96%;
+    --muted-foreground: 220 15% 45%;
+
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Border and input */
+    --border: 220 15% 90%;
+    --input: 220 15% 90%;
+    --ring: 260 85% 60%;
+
+    /* Custom gradient stops */
+    --gradient-from: 260 85% 60%;
+    --gradient-via: 240 85% 65%;
+    --gradient-to: 220 85% 70%;
+
+    /* Glass effect */
+    --glass-bg: 0 0% 100% / 0.1;
+    --glass-border: 0 0% 100% / 0.2;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark theme with deep purple background */
+    --background: 260 25% 6%;
+    --foreground: 0 0% 95%;
+
+    /* Dark cards */
+    --card: 260 25% 8%;
+    --card-foreground: 0 0% 95%;
+
+    /* Dark popover */
+    --popover: 260 25% 8%;
+    --popover-foreground: 0 0% 95%;
+
+    /* Dark primary - brighter in dark mode */
+    --primary: 260 85% 70%;
+    --primary-foreground: 260 25% 6%;
+    --primary-light: 260 85% 80%;
+    --primary-dark: 260 85% 60%;
+
+    /* Dark secondary */
+    --secondary: 260 25% 12%;
+    --secondary-foreground: 260 85% 70%;
+
+    /* Dark accent */
+    --accent: 25 85% 65%;
+    --accent-foreground: 260 25% 6%;
+
+    /* Dark muted */
+    --muted: 260 25% 12%;
+    --muted-foreground: 220 15% 65%;
+
+    /* Dark destructive */
+    --destructive: 0 84% 65%;
+    --destructive-foreground: 0 0% 95%;
+
+    /* Dark borders */
+    --border: 260 25% 15%;
+    --input: 260 25% 15%;
+    --ring: 260 85% 70%;
+
+    /* Dark gradients */
+    --gradient-from: 260 85% 70%;
+    --gradient-via: 240 85% 75%;
+    --gradient-to: 220 85% 80%;
+
+    /* Dark glass effect */
+    --glass-bg: 0 0% 0% / 0.2;
+    --glass-border: 0 0% 100% / 0.1;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  /* Brand gradients */
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--gradient-from)), hsl(var(--gradient-via)), hsl(var(--gradient-to)));
+  }
+  
+  .gradient-hero {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+  }
+  
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glass morphism */
+  .glass {
+    background: hsl(var(--glass-bg));
+    backdrop-filter: blur(10px);
+    border: 1px solid hsl(var(--glass-border));
+  }
+
+  /* Animations */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+}
+
+@layer components {
+  /* Button variants */
+  .btn-hero {
+    @apply bg-gradient-to-r from-primary to-accent text-primary-foreground px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg;
+  }
+
+  .btn-outline-glow {
+    @apply border-2 border-primary bg-transparent text-primary px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:shadow-glow;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
